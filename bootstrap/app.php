@@ -97,4 +97,11 @@ $app->router->group([
     require __DIR__.'/../routes/web.php';
 });
 
+$app->bind('path.public', function () {
+    return __DIR__ . 'public/';
+});
+
+$app->configure('modules');
+$app->register(\Nwidart\Modules\LumenModulesServiceProvider::class);
+
 return $app;
